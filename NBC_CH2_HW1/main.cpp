@@ -41,10 +41,10 @@ int main() {
         for (int i = 0; i < static_cast<int>(ECLASS::CNT); ++i) {
             cout << i << ". " << eclass_to_string[i] << endl;
         }
-        cout << "Á÷¾÷À» ¼±ÅÃÇÏ¼¼¿ä: ";
+        cout << "ì§ì—…ì„ ì„ íƒí•˜ì„¸ìš”: ";
         cin >> cmd;
         if (cmd < 0 || cmd>2) {
-            cout << "´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä" << endl;
+            cout << "ë‹¤ì‹œ ìž…ë ¥í•˜ì„¸ìš”" << endl;
             continue;
         }
         char_class = static_cast<ECLASS>(cmd);
@@ -53,36 +53,36 @@ int main() {
 
 
     for (;;) {
-        cout << "HP¿Í MP¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+        cout << "HPì™€ MPë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”: ";
         cin >> status[static_cast<int>(ESTAT::HP)] >> status[static_cast<int>(ESTAT::MP)];
         if (!(status[static_cast<int>(ESTAT::HP)] <= 50 || status[static_cast<int>(ESTAT::MP)] <= 50))
             break;
-        cout << "HP³ª MPÀÇ °ªÀÌ ³Ê¹« ÀÛ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+        cout << "HPë‚˜ MPì˜ ê°’ì´ ë„ˆë¬´ ìž‘ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•´ì£¼ì„¸ìš”." << endl;
     }
 
     for (;;) {
-        cout << "°ø°Ý·Â°ú ¹æ¾î·Â¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä: ";
+        cout << "ê³µê²©ë ¥ê³¼ ë°©ì–´ë ¥ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”: ";
         cin >> status[static_cast<int>(ESTAT::DAMAGE)] >> status[static_cast<int>(ESTAT::ARMOR)];
         if (!(status[static_cast<int>(ESTAT::DAMAGE)] <= 0 || status[static_cast<int>(ESTAT::ARMOR)] <= 0))
             break;
-        cout << "°ø°Ý·Â°ú ¹æ¾î·ÂÀÇ °ªÀÌ ³Ê¹« ÀÛ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+        cout << "ê³µê²©ë ¥ê³¼ ë°©ì–´ë ¥ì˜ ê°’ì´ ë„ˆë¬´ ìž‘ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ìž…ë ¥í•´ì£¼ì„¸ìš”." << endl;
     }
 
     setPotion(5, &nr_HPPotion, &nr_MPPotion);
-    cout << " * Æ÷¼ÇÀÌ Áö±ÞµÇ¾ú½À´Ï´Ù. (HP, MP Æ÷¼Ç °¢ 5°³)" << endl;
+    cout << " * í¬ì…˜ì´ ì§€ê¸‰ë˜ì—ˆìŠµë‹ˆë‹¤. (HP, MP í¬ì…˜ ê° 5ê°œ)" << endl;
     cout << "=============================================\
-            \n< ½ºÅÈ °ü¸® ½Ã½ºÅÛ >\
+            \n< ìŠ¤íƒ¯ ê´€ë¦¬ ì‹œìŠ¤í…œ >\
             \n1. HP UP\
             \n2. MP UP\
-            \n3. °ø°Ý·Â UP\
-            \n4. ¹æ¾î·Â UP\
-            \n5. ÇöÀç ´É·ÂÄ¡\
+            \n3. ê³µê²©ë ¥ UP\
+            \n4. ë°©ì–´ë ¥ UP\
+            \n5. í˜„ìž¬ ëŠ¥ë ¥ì¹˜\
             \n6. Level UP\
-            \n0. ³ª°¡±â\n";
+            \n0. ë‚˜ê°€ê¸°\n";
 
     cmd = -1;
     while (cmd) {
-        cout << "¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä: ";
+        cout << "ë²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”: ";
         cin >> cmd;
         switch (cmd)
         {
@@ -90,56 +90,56 @@ int main() {
             if (nr_HPPotion > 0) {
                 status[static_cast<int>(ESTAT::HP)] += 20;
                 --nr_HPPotion;
-                cout << "* HP°¡ 20 Áõ°¡µÇ¾ú½À´Ï´Ù. Æ÷¼ÇÀÌ 1°³ Â÷°¨µË´Ï´Ù." << endl;
-                cout << "ÇöÀç HP: " << status[static_cast<int>(ESTAT::HP)] <<
-                    "\n³²Àº Æ÷¼Ç ¼ö: " << nr_HPPotion << endl;
+                cout << "* HPê°€ 20 ì¦ê°€ë˜ì—ˆìŠµë‹ˆë‹¤. í¬ì…˜ì´ 1ê°œ ì°¨ê°ë©ë‹ˆë‹¤." << endl;
+                cout << "í˜„ìž¬ HP: " << status[static_cast<int>(ESTAT::HP)] <<
+                    "\në‚¨ì€ í¬ì…˜ ìˆ˜: " << nr_HPPotion << endl;
             }
             else {
-                cout << "Æ÷¼ÇÀÌ ºÎÁ·ÇÕ´Ï´Ù." << endl;
+                cout << "í¬ì…˜ì´ ë¶€ì¡±í•©ë‹ˆë‹¤." << endl;
             }
             break;
         case 2:
             if (nr_MPPotion > 0) {
                 status[static_cast<int>(ESTAT::MP)] += 20;
                 --nr_MPPotion;
-                cout << "* MP°¡ 20 Áõ°¡µÇ¾ú½À´Ï´Ù. Æ÷¼ÇÀÌ 1°³ Â÷°¨µË´Ï´Ù." << endl;
-                cout << "ÇöÀç MP: " << status[static_cast<int>(ESTAT::MP)] <<
-                    "\n³²Àº Æ÷¼Ç ¼ö: " << nr_MPPotion << endl;
+                cout << "* MPê°€ 20 ì¦ê°€ë˜ì—ˆìŠµë‹ˆë‹¤. í¬ì…˜ì´ 1ê°œ ì°¨ê°ë©ë‹ˆë‹¤." << endl;
+                cout << "í˜„ìž¬ MP: " << status[static_cast<int>(ESTAT::MP)] <<
+                    "\në‚¨ì€ í¬ì…˜ ìˆ˜: " << nr_MPPotion << endl;
             }
             else {
-                cout << "Æ÷¼ÇÀÌ ºÎÁ·ÇÕ´Ï´Ù." << endl;
+                cout << "í¬ì…˜ì´ ë¶€ì¡±í•©ë‹ˆë‹¤." << endl;
             }
 
             break;
         case 3:
             status[static_cast<int>(ESTAT::DAMAGE)] *= 2;;
-            cout << " * °ø°Ý·ÂÀÌ 2¹è·Î Áõ°¡µÇ¾ú½À´Ï´Ù.\
-                \nÇöÀç °ø°Ý·Â: " << status[static_cast<int>(ESTAT::DAMAGE)] << endl;
+            cout << " * ê³µê²©ë ¥ì´ 2ë°°ë¡œ ì¦ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\
+                \ní˜„ìž¬ ê³µê²©ë ¥: " << status[static_cast<int>(ESTAT::DAMAGE)] << endl;
             break;
         case 4:
             status[static_cast<int>(ESTAT::ARMOR)] = status[static_cast<int>(ESTAT::ARMOR)] << 1;
-            cout << " * ¹æ¾î·ÂÀÌ 2¹è·Î Áõ°¡µÇ¾ú½À´Ï´Ù.\
-                \nÇöÀç ¹æ¾î·Â: " << status[static_cast<int>(ESTAT::ARMOR)] << endl;
+            cout << " * ë°©ì–´ë ¥ì´ 2ë°°ë¡œ ì¦ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\
+                \ní˜„ìž¬ ë°©ì–´ë ¥: " << status[static_cast<int>(ESTAT::ARMOR)] << endl;
             break;
         case 5:
             cout << " * Level : " << level << ", CLASS : " << eclass_to_string[static_cast<int>(char_class)] << ", HP : " << status[static_cast<int>(ESTAT::HP)] << ", MP : " << status[static_cast<int>(ESTAT::MP)]
-                << ", °ø°Ý·Â : " << status[static_cast<int>(ESTAT::DAMAGE)] << ", ¹æ¾î·Â : " << status[static_cast<int>(ESTAT::ARMOR)]
-                << ", Èû : " << status[static_cast<int>(ESTAT::STR)] << ", ¹ÎÃ¸ : " << status[static_cast<int>(ESTAT::DEX)] << ", Áö´É : " << status[static_cast<int>(ESTAT::INT)]
-                << "\n³²Àº HP / MP Æ÷¼Ç ¼ö : " << nr_HPPotion << " / " << nr_MPPotion << endl;
+                << ", ê³µê²©ë ¥ : " << status[static_cast<int>(ESTAT::DAMAGE)] << ", ë°©ì–´ë ¥ : " << status[static_cast<int>(ESTAT::ARMOR)]
+                << ", íž˜ : " << status[static_cast<int>(ESTAT::STR)] << ", ë¯¼ì²© : " << status[static_cast<int>(ESTAT::DEX)] << ", ì§€ëŠ¥ : " << status[static_cast<int>(ESTAT::INT)]
+                << "\në‚¨ì€ HP / MP í¬ì…˜ ìˆ˜ : " << nr_HPPotion << " / " << nr_MPPotion << endl;
             break;
         case 6:
             levelUp(&level, status, char_class, &nr_HPPotion, &nr_MPPotion);
-            cout << "* ·¹º§¾÷! HP/MP Æ÷¼ÇÀÌ Áö±ÞµË´Ï´Ù.\
-                    \nLevel : " << level << ", ³²Àº HP / MP Æ÷¼Ç ¼ö : " << nr_HPPotion << " / " << nr_MPPotion << endl;
+            cout << "* ë ˆë²¨ì—…! HP/MP í¬ì…˜ì´ ì§€ê¸‰ë©ë‹ˆë‹¤.\
+                    \nLevel : " << level << ", ë‚¨ì€ HP / MP í¬ì…˜ ìˆ˜ : " << nr_HPPotion << " / " << nr_MPPotion << endl;
             break;
         case 0:
             break;
         default:
-            cout << "´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä" << endl;
+            cout << "ë‹¤ì‹œ ìž…ë ¥í•˜ì„¸ìš”" << endl;
             break;
         }
     }
-    cout << "ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù." << endl;
+    cout << "í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
 
 
     return 0;
